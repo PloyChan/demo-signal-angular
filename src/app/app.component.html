@@ -1,52 +1,52 @@
-<h1>Angular Signal</h1>
-<label>new item
-  <input type="text" [value]="newItemName()" (input)="updateNewItem($event)">
-</label>
+<!--<h1>Angular Signal</h1>-->
+<!--<label>new item-->
+<!--  <input type="text" [value]="newItemName()" (input)="updateNewItem($event)">-->
+<!--</label>-->
 
-<button (click)="itemService.appendItem(newItemName())">Append Name</button>
-<button (click)="itemService.clearItems()">Clear Items</button>
-<button (click)="handleClick()">log items</button>
-<br>
-<label>name filter
-  <input type="text" [value]="nameFilter()" (input)="updateNameFilter($event)">
-</label>
-
-<ul>
-  @for(item of visible(); track item.id) {
-    <li (click)="chooseItem(item.id)"
-        [ngClass]="{ bold: (chooseItem$ | async)  == item.id}"
-    >
-      {{item?.name}}
-    </li>
-  }
-</ul>
-Chosen ID: {{ chooseItem$ | async}} Chosen ID (signal) : {{ chosenItem()}}
+<!--<button (click)="itemService.appendItem(newItemName())">Append Name</button>-->
+<!--<button (click)="itemService.clearItems()">Clear Items</button>-->
+<!--<button (click)="handleClick()">log items</button>-->
+<!--<br>-->
+<!--<label>name filter-->
+<!--  <input type="text" [value]="nameFilter()" (input)="updateNameFilter($event)">-->
+<!--</label>-->
 
 <!--<ul>-->
-<!--  @for(item of items(); track item.id) {-->
-<!--    <li>-->
+<!--  @for(item of visible(); track item.id) {-->
+<!--    <li (click)="chooseItem(item.id)"-->
+<!--        [ngClass]="{ bold: (chooseItem$ | async)  == item.id}"-->
+<!--    >-->
 <!--      {{item?.name}}-->
 <!--    </li>-->
 <!--  }-->
 <!--</ul>-->
+<!--Chosen ID: {{ chooseItem$ | async}} Chosen ID (signal) : {{ chosenItem()}}-->
 
-@if (lastItem()) {
-  <br>
-  {{'lastItem: ' + lastItem().name}}
-}
-<br>
-<label>
-  <input type="checkbox" [(ngModel)]="showChild">
-  show child component</label>
-@if (showChild) {
-  <app-child></app-child>
-}
+<!--&lt;!&ndash;<ul>&ndash;&gt;-->
+<!--&lt;!&ndash;  @for(item of items(); track item.id) {&ndash;&gt;-->
+<!--&lt;!&ndash;    <li>&ndash;&gt;-->
+<!--&lt;!&ndash;      {{item?.name}}&ndash;&gt;-->
+<!--&lt;!&ndash;    </li>&ndash;&gt;-->
+<!--&lt;!&ndash;  }&ndash;&gt;-->
+<!--&lt;!&ndash;</ul>&ndash;&gt;-->
 
-<ul>
-  @for (user of user$ | async; track user.id) {
-    <li>ID: {{user.id}}, name: {{user.name}}</li>
-  }
-</ul>
+<!--@if (lastItem()) {-->
+<!--  <br>-->
+<!--  {{'lastItem: ' + lastItem().name}}-->
+<!--}-->
+<!--<br>-->
+<!--<label>-->
+<!--  <input type="checkbox" [(ngModel)]="showChild">-->
+<!--  show child component</label>-->
+<!--@if (showChild) {-->
+<!--  <app-child></app-child>-->
+<!--}-->
+
+<!--<ul>-->
+<!--  @for (user of user$ | async; track user.id) {-->
+<!--    <li>ID: {{user.id}}, name: {{user.name}}</li>-->
+<!--  }-->
+<!--</ul>-->
 <!--<ul>-->
 <!--  @for(item of filterItem(); track item.id) {-->
 <!--    <li>-->
@@ -64,3 +64,11 @@ Chosen ID: {{ chooseItem$ | async}} Chosen ID (signal) : {{ chosenItem()}}
 <!--</ul>-->
 
 
+<h1>Angular Signal</h1>
+<div>{{'Price: ' + price}}</div>
+<div>{{'Quantity: ' + quantity()}}</div>
+
+<button (click)="plus()">+</button>
+<button (click)="minus()">-</button>
+
+<div>{{'total: ' + total()}}</div>
